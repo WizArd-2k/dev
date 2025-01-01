@@ -1,0 +1,4 @@
+Ligne 1 écrite dans le fichier.
+Ligne 2 écrite dans le fichier.
+Ligne 3 écrite dans le fichier.
+Ligne 4 écrite dans le fichier.

@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Projet web d'apprentissage</title>
+        <meta charset="utf-8" />
+        <link href="./css/style.css" rel="stylesheet" />
+
+
+    </head>
+    <body>
+        <header>
+            <div id="logo"></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="a-propos.html">A propos</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contactez-nous</a></li>                    
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <aside>
+                <section>
+                    <h3>Dernière nouvelles</h3>
+					<h4>Nouveau site lancé !</h4>
+					<h5>Vendredi 10/09/2018</h5>
+					<p>Les spécificités du site. <a href="#">Lire plus</a></p>
+                </section>            
+            </aside>
+            <section><h1>Formulaire de contact</h1>
+                <div>
+                    <form action="traitement.php" method="GET"> 
+                        <p class="first-p"><label for="M"><strong>Mr </strong></label><input type="radio" id="M" value="M" name="Genre" />
+                        <label for="F"><strong>Mme </strong></label><input type="radio" id="F" value="F" name="Genre" /></p>
+                        <p><label for="Nom" class="etiquette"><strong>Nom : </strong></label><input type="text" value="" id="Nom" name="Nom" /></p>
+                        <p><label for="Prenom" class="etiquette"><strong>Prénom : </strong></label><input type="text" value="" id="Prenom" name="Prenom" /></p>
+                        <p><label for="Telephone" class="etiquette"><strong>Téléphone : </strong></label><input type="text" value="" id="Telephone" name="Telephone" /></p>
+                        <p><label for="Email" class="etiquette"><strong>Email : </strong></label><input type="email" value="" id="Email" name="Email" /></p>
+                        <p><label for="Sujet" class="etiquette"><strong>Sujet : </strong></label><input type="text" value="" id="Sujet" name="Sujet" /></p>
+                        <p><label for="Message" class="etiquette"><strong>Message : </strong></label><textarea id="Message" name="Message"></textarea></p>
+                    </form>
+                </div>
+            </section>
+        </main>
+        <footer>Footer</footer>
+    </body>
+</html>

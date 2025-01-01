@@ -1,0 +1,188 @@
+body{
+	background: #FFF url(../images/pattern.png) repeat;
+	color: #000;
+    font: normal .90em arial, sans-serif;
+	line-height: 2em;
+    margin: 10px; 
+}
+
+header{
+    background: transparent url(../images/header.jpg) no-repeat;
+    background-size: cover;
+    height: 220px;
+}
+
+header nav {
+    float: left;
+    width: 80%;
+    background-color: #f0f;
+    margin-top: 152px;
+    line-height: 30px;
+    height: 30px;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+header nav ul li {
+    float: left;
+    display: inline;
+    margin-left: 10px;
+}
+
+header nav ul li a {
+    color: #000;
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+header #logo {
+    float: left;
+    width: 19%;
+    height: 80%;
+    margin:5px 0 auto 1%;
+    background: url('../images/logo4.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+aside {
+    float: left;
+    width: 20%;
+    margin-top: 10px;
+    border-radius: 7px 7px 7px 7px;
+	-moz-border-radius: 7px 7px 7px 7px;
+	-webkit-border: 7px 7px 7px 7px; 
+	-moz-box-shadow: rgba(0, 0, 0, 0.5)  0px 3px 5px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 5px;
+	box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 5px;	
+}
+
+aside section p {
+    text-align: center;
+}
+
+aside section p a {
+    color: #000;
+    text-decoration: none;
+}
+
+aside section p a:hover {
+    text-decoration: underline;
+}
+
+aside section h3,
+aside section h4,
+aside section h5 {
+    font: bold arial;
+    margin: 0;
+    padding: 0;
+    color: #0196E8;
+}
+
+aside section h3 { 
+    margin-left: 5px;
+}
+aside section h4 {
+    font-size: 1em;
+    color: #000;
+    margin-left: 10px;
+}
+aside section h5 {
+    font-size: 1em;
+    color: #000;
+    margin-left: 15px;
+}
+
+article {
+    float: left;
+    width: 80%;  
+}
+
+main section {
+    float: left;
+    width: 80%;    
+}
+
+main section div {
+    width: 600px;
+    margin:10px auto;
+    border-radius: 7px 7px 7px 7px;
+	-moz-border-radius: 7px 7px 7px 7px;
+	-webkit-border: 7px 7px 7px 7px; 
+	-moz-box-shadow: rgba(0, 0, 0, 0.5)  0px 3px 5px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 5px;
+	box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 5px;	
+}
+
+main section div form p.first-p {
+    padding-left: 80px;
+}
+
+main section div p label.etiquette{
+    width: 115px;
+    display: block;
+    float: left;
+    text-align:right;
+    padding-right: 5px;
+}
+
+main section div p input[type="text"],
+main section div p input[type="email"] {
+    width: 450px;
+    background-color: #ddd;
+    text-align:left;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px #aaa solid;
+}
+
+main section div p textarea {
+    width: 450px;
+    min-height: 100px;
+    line-height: 20px;
+    background-color: #ddd;
+    text-align:left;
+    border-radius: 5px;
+    border: 1px #aaa solid;
+}
+
+footer {
+    clear: both;
+    width: 100%;
+    background-color: #0f0;    
+    
+}
+
+h1, h2, h3 { 
+  font: bold 2em arial;
+  margin: 0;
+  padding: 0;
+  color: #0196E8;
+  
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 { 
+  font-size: 1.5em;
+  margin: 5px 0;
+  text-decoration: underline;
+}
+
+h3 { 
+  font-size: 1.2em;
+  margin: 5px 0;
+}
+
+p {
+    margin: 0 0 15px 0;
+}
