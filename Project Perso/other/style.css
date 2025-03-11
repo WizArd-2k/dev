@@ -1,0 +1,33 @@
+body{
+    background-color: rgb(0, 89, 255);
+}
+#top-layer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.678); 
+    width: 100%;
+    height: 75px;
+    z-index: -1;
+}
+#top-layer h1{
+    font-size: 1.5em;
+    position: relative;
+    left: 50%;
+}
+#menu{
+    display: flex;
+    position: relative;
+    width: 101%;
+    height: 20px;
+    background-color: yellow;
+    z-index: 1;
+    top: -20px;
+}
+a{
+    display: flex;
+    color: red;
+    position: relative; 
+    left: 10px;
+}

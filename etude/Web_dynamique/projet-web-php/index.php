@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 require 'bdd.php';
 
 
@@ -16,10 +18,10 @@ switch ($page) {
     case "#a-propos":
         $pageId = 2;
         break;
-    case "#contact":
+    case "#blog":
         $pageId = 3;
         break;
-    case "#blog":
+    case "#contact":
         $pageId = 4;
         break;
     default:
@@ -55,12 +57,18 @@ $pageId = (int)$pageId;
 
     <main>
         <aside>
-            <h3>Dernières nouvelles</h3>
-            <h4>Nouveau site lancé</h4>
-            <h5>Vendredi 10/09/2018</h5>
-            <p id="test">Les spécificités du site.<a href="./a-propos.html"> Lire plus</a></p>
+            <?php
+                $popup = $mydb->query('SELECT pop_content FROM popup ORDER BY pop_id ASC');
+                $popup = $popup->fetch_object();
+                echo ''. $popup->pop_content .  '';
+                
+            ?>
+            <a href="?page=contact"> Lire plus</a></p>
         </aside>
 
+        
+
+       
         <article>
             <?php
             $stmt = $mydb->prepare("SELECT or_type, or_fk_id FROM organisation WHERE or_fk_na_id = (SELECT na_id FROM navigation WHERE na_lien = ?) ORDER BY or_position");
@@ -86,7 +94,84 @@ $pageId = (int)$pageId;
                 echo "Aucune donnée trouvée pour cette page.";
             }
             ?>
-        </article>
+        </article>    
+         <?php
+         try {
+            $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die("Could not connect to the database $dbname :" . $e->getMessage());
+        }
+         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $genre = $_POST['Genre'];
+            $nom = $_POST['Nom'];
+            $prenom = $_POST['Prenom'];
+            $telephone = $_POST['Telephone'];
+            $email = $_POST['Email'];
+            $sujet = $_POST['Sujet'];
+            $message = $_POST['Message'];
+            try {
+                
+                $sql = "INSERT INTO contacts (genre, nom, prenom, telephone, email, sujet, message) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([$genre, $nom, $prenom, $telephone, $email, $sujet, $message]);
+                echo "Données enregistrées avec succès!";
+            } catch (PDOException $e) {
+                echo "Erreur lors de l'enregistrement des données: " . $e->getMessage();
+            }
+        }
+        $affichage_lu = null;
+        if ($affichage->num_rows > 0) {
+        while ($obj = $affichage->fetch_object()) {
+            if ($obj->or_fk_na_id == 4) {
+?>
+             <section>
+                <h1>Formulaire de contact</h1>
+                <div>
+                    <form action="contact.php" method="POST"> 
+                        <p class="first-p">
+                            <label for="M"><strong>Mr </strong></label>
+                            <input type="radio" id="M" value="M" name="Genre" />
+                            <label for="F"><strong>Mme </strong></label>
+                            <input type="radio" id="F" value="F" name="Genre" />
+                        </p>
+                        <p>
+                            <label for="Nom" class="etiquette"><strong>Nom : </strong></label>
+                            <input type="text" value="" id="Nom" name="Nom" required />
+                        </p>
+                        <p>
+                            <label for="Prenom" class="etiquette"><strong>Prénom : </strong></label>
+                            <input type="text" value="" id="Prenom" name="Prenom" required />
+                        </p>
+                        <p>
+                            <label for="Telephone" class="etiquette"><strong>Téléphone : </strong></label>
+                            <input type="text" value="" id="Telephone" name="Telephone" required />
+                        </p>
+                        <p>
+                            <label for="Email" class="etiquette"><strong>Email : </strong></label>
+                            <input type="email" value="" id="Email" name="Email" required />
+                        </p>
+                        <p>
+                            <label for="Sujet" class="etiquette"><strong>Sujet : </strong></label>
+                            <input type="text" value="" id="Sujet" name="Sujet" required />
+                        </p>
+                        <p>
+                            <label for="Message" class="etiquette"><strong>Message : </strong></label>
+                            <textarea id="Message" name="Message" required></textarea>
+                        </p>
+                        <p>
+                            <input type="submit" value="Envoyer" />
+                        </p>
+                    </form>
+                </div>
+            </section>
+<?php
+            }
+        }
+    } else {
+        echo "Aucune donnée trouvée.";
+    }
+?>
     </main>
 
     <footer>Footer</footer>
