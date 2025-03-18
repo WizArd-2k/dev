@@ -1,0 +1,1 @@
+g++ -g "C:\chemin\vers\ton\code.cpp" -o "C:\chemin\vers\ton\code.exe"
