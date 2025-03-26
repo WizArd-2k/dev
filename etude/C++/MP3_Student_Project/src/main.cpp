@@ -1,25 +1,30 @@
 /*
  * main.cpp
  *
- *  Traitement des informations textuelles d'un fichier mp3
- *
  */
-
-#include "fichiers.h"
 #include "mp3.h"
+#include <iostream>
 
-using namespace std;
+int main() {
+    string nomFichier;
+    cout << "Nom du fichier MP3 : ";
+    getline(cin, nomFichier);
 
-int main()
-{
-	// A FAIRE : instancier un nouvel objet MP3 et renseigner le nom du fichier à ouvrir
-	MP3 MP3File;
-	MP3File::Title = "This_Is_The_Day.mp3";
-	// A FAIRE : appel de la méthode pour modifier le tag du fichier mp3
-	MP3File.ecritMetadonnees();
-	//A FAIRE : fermeture du fichier
-
-	return 0;
+    MP3 fichierMP3(nomFichier, READ_WRITE);
+    
+    if (!fichierMP3.litMetadonnees()) {
+        cerr << "Erreur lecture métadonnées" << endl;
+        return 1;
+    }
+    
+    fichierMP3.afficherMetadonnees();
+    fichierMP3.modifierMetadonnees();
+    
+    if (!fichierMP3.ecritMetadonnees()) {
+        cerr << "Erreur écriture métadonnées" << endl;
+        return 1;
+    }
+    
+    cout << "Métadonnées mises à jour !" << endl;
+    return 0;
 }
-
-
